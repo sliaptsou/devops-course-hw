@@ -1,4 +1,4 @@
-.PHONY: fmt help
+.PHONY: fmt help destroy
 
 VAR_FILE=vars.tfvars
 
@@ -13,6 +13,9 @@ plan: validate
 
 apply: validate
 	@terraform apply -var-file=$(VAR_FILE)
+
+destroy:
+	@terraform destroy -var-file=$(VAR_FILE)
 
 help:
 	@terraform --help
